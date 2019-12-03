@@ -155,9 +155,9 @@ public class JUnit38ClassRunner extends Runner implements Filterable, Orderable 
             TestSuite filtered = new TestSuite(suite.getName());
             int n = suite.testCount();
             for (int i = 0; i < n; i++) {
-                Test test = suite.testAt(i);
-                if (filter.shouldRun(makeDescription(test))) {
-                    filtered.addTest(test);
+                Test testS = suite.testAt(i);
+                if (filter.shouldRun(makeDescription(testS))) {
+                    filtered.addTest(testS);
                 }
             }
             setTest(filtered);
