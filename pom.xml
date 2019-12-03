@@ -65,15 +65,18 @@
         <developerConnection>scm:git:git@github.com:junit-team/junit4.git</developerConnection>
         <url>http://github.com/junit-team/junit4/tree/master</url>
       <tag>HEAD</tag>
-  </scm>
+  	</scm>
+  	
     <issueManagement>
         <system>github</system>
         <url>https://github.com/junit-team/junit4/issues</url>
     </issueManagement>
+    
     <ciManagement>
         <system>travis</system>
         <url>https://travis-ci.org/junit-team/junit4</url>
     </ciManagement>
+    
     <distributionManagement>
         <downloadUrl>https://github.com/junit-team/junit4/wiki/Download-and-Install</downloadUrl>
         <snapshotRepository>
@@ -128,6 +131,7 @@
                 </includes>
             </resource>
         </resources>
+        <pluginManagement>
         <plugins>
             <!--
             Both "org.apache" and "org.codehaus" are default providers of MOJO plugins
@@ -375,6 +379,7 @@
                 <version>2.7</version>
             </plugin>
         </plugins>
+       </pluginManagement>
     </build>
 
     <reporting>
