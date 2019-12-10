@@ -38,7 +38,7 @@ import java.util.concurrent.TimeUnit;
  * @since 4.7
  */
 public class Timeout implements TestRule {
-    private final long timeout;
+    private final long timeO;   //timeout-fix
     private final TimeUnit timeUnit;
     private final boolean lookForStuckThread;
 
@@ -78,7 +78,7 @@ public class Timeout implements TestRule {
      * @since 4.12
      */
     public Timeout(long timeout, TimeUnit timeUnit) {
-        this.timeout = timeout;
+        this.timeO = timeout;
         this.timeUnit = timeUnit;
         lookForStuckThread = false;
     }
@@ -90,7 +90,7 @@ public class Timeout implements TestRule {
      * @since 4.12
      */
     protected Timeout(Builder builder) {
-        timeout = builder.getTimeout();
+        timeO = builder.getTimeout();
         timeUnit = builder.getTimeUnit();
         lookForStuckThread = builder.getLookingForStuckThread();
     }
@@ -121,7 +121,7 @@ public class Timeout implements TestRule {
      * @since 4.12
      */
     protected final long getTimeout(TimeUnit unit) {
-        return unit.convert(timeout, timeUnit);
+        return unit.convert(timeO, timeUnit);
     }
 
     /**
@@ -145,7 +145,7 @@ public class Timeout implements TestRule {
     protected Statement createFailOnTimeoutStatement(
             Statement statement) throws Exception {
         return FailOnTimeout.builder()
-            .withTimeout(timeout, timeUnit)
+            .withTimeout(timeO, timeUnit)
             .withLookingForStuckThread(lookForStuckThread)
             .build(statement);
     }
